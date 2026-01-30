@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Scene } from './components/Scene';
 import { ScrollOverlay } from './components/ScrollOverlay';
@@ -10,7 +9,6 @@ const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate asset loading for the cinematic feel
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2800);
@@ -21,24 +19,21 @@ const App: React.FC = () => {
     <main className="relative w-full bg-[#050505]">
       {isLoading && <LoadingScreen />}
       
-      {/* Fixed 3D Scene Layer */}
+      {/* PASS isLoading TO SCENE */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <Scene />
+        <Scene isLoading={isLoading} />
       </div>
 
-      {/* Scrollable Content Layer */}
       {!isLoading && (
         <div className="relative z-10 animate-[fadeIn_2s_ease-out]">
           <ScrollOverlay onOrderClick={() => setIsOrdering(true)} />
         </div>
       )}
 
-      {/* Persistent Footer Logo */}
       <div className="fixed bottom-10 left-1/2 -translate-x-1/2 opacity-20 pointer-events-none transition-opacity hover:opacity-100 z-20">
         <p className="text-[10px] tracking-[0.5em] uppercase font-light">BOSE PRO</p>
       </div>
 
-      {/* Order Modal */}
       {isOrdering && <OrderOverlay onClose={() => setIsOrdering(false)} />}
 
       <style>{`
