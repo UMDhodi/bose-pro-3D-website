@@ -33,7 +33,7 @@ export const ProductModel: React.FC<ProductModelProps> = ({ isLoading }) => {
           trigger: '#scroll-container',
           start: 'top top',
           end: 'bottom bottom',
-          scrub: 1.5, // Increased smooth scrubbing
+          scrub:  0.5,
         }
       });
 
