@@ -10,9 +10,13 @@
       "DOM.Iterable"
     ],
     "skipLibCheck": true,
+    
+    /* FIX: ADD "vite/client" HERE */
     "types": [
-      "node"
+      "node",
+      "vite/client"
     ],
+    
     "moduleResolution": "bundler",
     "isolatedModules": true,
     "moduleDetection": "force",

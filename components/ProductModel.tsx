@@ -14,7 +14,8 @@ export const ProductModel: React.FC<ProductModelProps> = ({ isLoading }) => {
   const groupRef = useRef<THREE.Group>(null);
   
   // 1. Load Model
-  const fbx = useFBX('/14.fbx'); 
+  // This automatically adds "/bose-pro-3D-website/" when deployed
+  const fbx = useFBX(import.meta.env.BASE_URL + '14.fbx');
   const scene = useMemo(() => fbx.clone(), [fbx]);
 
   useLayoutEffect(() => {
